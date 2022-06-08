@@ -13,6 +13,7 @@ services:
       - PORT=3000
       - MONGO_USER=inam
       - MONGO_PWD=word2pass
+      - SESSION_SECRET=thisissecret
     # ports:
     #   - "4000:4000"
     command: npm run dev-start
