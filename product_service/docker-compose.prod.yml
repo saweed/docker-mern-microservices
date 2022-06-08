@@ -1,8 +1,5 @@
 version: "3"
 services:
-  nginx:
-    ports:
-      - "80:80"
   product-service:
       build:
         context: .

@@ -40,9 +40,10 @@ app.enable("trust proxy");
 app.use(cors({}));
 const port = process.env.PORT || 3000;
 console.log(port);
+
 app.get('/api/v1', (req, res) => {
-  res.send('Hello World!!!');
-  console.log('here it is!1!!');
+  res.send('Hello product service');
+  console.log("Hello product service");
 })
 
 app.use("/api/v1/product", productRouter);

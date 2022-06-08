@@ -10,11 +10,11 @@ services:
       - /app/node_modules
     environment:
       - NODE_ENV=development
-      - PORT=3000
+      - PORT=4000
       - MONGO_USER=inam
       - MONGO_PWD=word2pass
-    # ports:
-    #   - "4000:4000"
+    ports:
+      - "4000:4000"
     command: npm run dev-start
 
   mongo:
