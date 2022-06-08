@@ -1,2 +1,4 @@
 product_service/node_modules/
+user_service/node_modules/
+front_end/node_modules/
 product_service/docker-v1.zip
