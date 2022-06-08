@@ -11,7 +11,7 @@ services:
     environment:
       - NODE_ENV=development
       - PORT=3000
-      - MONGO_USER=inam
+      - MONGO_USER=hassan
       - MONGO_PWD=word2pass
       - SESSION_SECRET=thisissecret
     # ports:
@@ -20,5 +20,5 @@ services:
 
   mongo:
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=inam
+      - MONGO_INITDB_ROOT_USERNAME=hassan
       - MONGO_INITDB_ROOT_PASSWORD=word2pass
