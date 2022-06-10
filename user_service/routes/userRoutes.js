@@ -7,6 +7,8 @@ const router = exporess.Router();
 router
   .route("/signup")
   .post(authController.signUp);
-router.post("/login", authController.login);
+router
+  .route("/login")
+  .post(authController.login);
 
 module.exports = router;

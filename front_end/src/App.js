@@ -17,7 +17,7 @@ if (localStorage.getItem("token")) {
 }
 function App() {
   useEffect(() => {
-    store.dispatch(loadUser());
+    // store.dispatch(loadUser());
   }, []);
   return (
     <Provider store={store}>

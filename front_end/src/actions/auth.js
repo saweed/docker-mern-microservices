@@ -75,15 +75,14 @@ export const login =
     };
 
     const body = JSON.stringify({ name:email, password });
-    console.log(body);
     try {
-      const res = await axios.post("/api/v1/user/login", body, config);
-      // dispatch({
-      //   type: LOGIN_SUCCESS,
-      //   payload: res.data,
-      // });
+      const res = await axios.post("/api/v1/user/login/", body, config);
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: res.data,
+      });
 
-      // dispatch(loadUser());
+      dispatch(loadUser());
     } catch (error) {
       if (error.response.status === 500) {
         dispatch(setAlert(error.response.statusText, "danger"));

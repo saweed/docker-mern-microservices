@@ -14,7 +14,7 @@ const {
   SESSION_SECRET,
 } = require("./config/config");
 const userRouter = require("./routes/userRoutes");
-
+console.log('abc');
 // Connetion to mongodb.
 // To get ip. inspect docker container for mongo and look in Networks.
 
@@ -66,7 +66,7 @@ app.use(
 );
 const port = process.env.PORT || 3000;
 console.log(port);
-app.get("/api/v1", (req, res) => {
+app.get("/api/v1/user", (req, res) => {
   res.send("Hello World!!!");
   console.log("here it is!1!!");
 });
