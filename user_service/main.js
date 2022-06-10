@@ -21,7 +21,7 @@ const userRouter = require("./routes/userRoutes");
 // Can also connected by service name here in this case it is mongo, only in
 // custom networks, not in default networks
 // docker network ls
-const dbURL = `mongodb://${MONGO_USER}:${MONGO_PWD}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`;
+const dbURL = `mongodb://${MONGO_USER}:${MONGO_PWD}@${MONGO_IP}:${MONGO_PORT}/mydb?authSource=admin`;
 let RedisStore = require("connect-redis")(session);
 let redisClient = redis.createClient({
   host: REDIS_URL,

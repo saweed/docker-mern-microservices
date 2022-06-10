@@ -23,6 +23,6 @@ docker-compose up -d --build -V
 cd ..
 
 docker volume prune
-docker network prune
+# docker network prune
 
 echo "started all services"

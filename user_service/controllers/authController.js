@@ -2,11 +2,13 @@ const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
 
 exports.signUp = async (req, res) => {
-  const {username, password} = req.body;
+  console.log(req.body);
+  const {name, email, password} = req.body;
   try {
     const hashPassword = await bcrypt.hash(password, 12);
     const newUser = await User.create({
-      username,
+      name,
+      email,
       password: hashPassword
     });
     req.session.user = newUser;
@@ -25,9 +27,10 @@ exports.signUp = async (req, res) => {
 }
 
 exports.login = async (req, res) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
+  console.log(req.body);
   try {
-    const user = await User.findOne({username});
+    const user = await User.findOne({name: email});
     if(!user) {
       return res.status(404).json({
         status: 'fail',

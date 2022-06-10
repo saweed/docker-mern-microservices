@@ -1,46 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
-import { useState, useEffect } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import "./App.css";
+import React, { useEffect } from "react";
+import Container from "./components/layout/Container";
+import Copyrights from "./components/layout/Copyrights";
+import Footer from "./components/layout/Footer";
+import Header from "./components/layout/Header";
 
+// Redux related
+import { Provider } from "react-redux";
+import store from "./store";
+import { loadUser } from "./actions/auth";
+import setAuthToken from "./helpers/defaultHeaders";
+
+if (localStorage.getItem("token")) {
+  setAuthToken(localStorage.token);
+}
 function App() {
-  console.log('verify load balancer');
   useEffect(() => {
-    fetch(`/api/v1/product/`, {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(
-            `This is an HTTP error: The status is ${response.status}`
-          );
-        }
-        return response.json();
-      })
-      .then((actualData) => console.log(actualData))
-      .catch((err) => {
-        console.log(err);
-      });
+    store.dispatch(loadUser());
   }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Router>
+        <Header />
+
+        <Container />
+
+        <Footer />
+        <Copyrights />
+      </Router>
+    </Provider>
   );
 }
 
