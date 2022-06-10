@@ -5,10 +5,10 @@ import { useState, useEffect } from "react";
 function App() {
   console.log('verify load balancer');
   useEffect(() => {
-    fetch(`/api/v1/product`, {
+    fetch(`/api/v1/product/`, {
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json",
+        Accept: "application/json",
       },
     })
       .then((response) => {

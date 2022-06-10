@@ -1,10 +1,11 @@
-version: "3"
+version: "3.4"
 services:
   user_service:
     build: .
     depends_on:
       - mongo
       - redis
+
   mongo:
     image: mongo
     restart: always
@@ -15,3 +16,8 @@ services:
     image: redis
 volumes:
   mongo-db:
+
+networks:
+  default:
+    external:
+      name: nginx_net

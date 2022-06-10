@@ -1,4 +1,4 @@
-version: "3"
+version: "3.4"
 services:
   product-service:
     build: .
@@ -9,6 +9,11 @@ services:
     restart: always
     volumes:
       - mongo-db:/data/db
+
+networks:
+  default:
+    external:
+      name: nginx_net
 
 volumes:
   mongo-db:

@@ -10,6 +10,8 @@ RUN if [ "$NODE_ENV"  = "development" ]; \
   else npm install --only=production;\
   fi;
 
+RUN apt-get update
+RUN  apt-get install iputils-ping -y
 
 COPY . ./
 

@@ -1,6 +1,6 @@
-version: "3"
+version: "3.4"
 services:
-  product-service:
+  user_service:
     build:
       context: .
       args:
@@ -10,12 +10,12 @@ services:
       - /app/node_modules
     environment:
       - NODE_ENV=development
-      - PORT=3000
+      - PORT=5000
       - MONGO_USER=hassan
       - MONGO_PWD=word2pass
       - SESSION_SECRET=thisissecret
-    # ports:
-    #   - "4000:4000"
+    ports:
+      - "5000:5000"
     command: npm run dev-start
 
   mongo:

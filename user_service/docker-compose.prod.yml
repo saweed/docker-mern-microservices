@@ -3,7 +3,7 @@ services:
   nginx:
     ports:
       - "80:80"
-  product-service:
+  user_service:
       build:
         context: .
         args:
